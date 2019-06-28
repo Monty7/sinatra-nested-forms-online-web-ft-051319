@@ -1,15 +1,21 @@
 class Ship
     attr_accessor :name, :type, :booty
 
-    SHIPS = []
-    def initialize(name, type, booty)
-        @name = name
-        @type = type
-        @booty = booty
-        SHIPS << self
+    @@ships = []
+    
+    def initialize(params)
+        #binding.pry
+        @name = params[:name]
+        @type = params[:type]
+        @booty = params[:booty]
+        @@ships << self
+    end
+
+    def self.all
+        @@ships
     end
 
     def self.clear
-        SHIPS.clear
+        @@ships = []
     end
 end
